@@ -7,6 +7,8 @@
   -> <- fáum syntax villu ef við setjum aðra lokun hér
 */
 
+let foo = 1
+
 // console.log er leið til að skrifa í _console_
 // virkar bæði í vafra og nodejs
 

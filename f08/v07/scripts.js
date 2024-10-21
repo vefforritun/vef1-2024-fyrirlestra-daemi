@@ -11,6 +11,10 @@
 /** Íslenskir sérhljóðar */
 const CONSONANTS = 'bcdfghjklmnpqrstvwxz'.split('');
 
+function foo() {}
+
+var foobar = '1';
+
 /** Íslenskir samhljóðar */
 const VOWELS = 'aeiouyáéýúíóöæ'.split('');
 
@@ -73,13 +77,23 @@ console.assert(
   reverse(false) === null,
   'reverse: ef ekki strengur, skila null'
 );
-console.assert(
 
-)
-
+// 1. (ekki palindrome) "halló" => false
+// 2. (palindrome) "hah" => true
+// 3. (ólöglegt inntak) null / false / 0 => false
+// 4. "" ??? => false
+// 5. "Hah" ??? => true
 function palindrome(str) {
-  // Útfæra
+  if (isString(str) && str !== '') {
+    const reversed = reverse(str);
+    return str.toLowerCase() === reversed.toLowerCase();
+  }
+
+  return false;
 }
+console.assert(palindrome('halló') === false, 'palindrome: strengur, ekki');
+console.assert(palindrome('hah') === true, 'palindrome: strengur, er');
+console.assert(palindrome('') === false, 'palindrome: tómi strengur ekki');
 
 function vowels(str) {
   // Útfæra
